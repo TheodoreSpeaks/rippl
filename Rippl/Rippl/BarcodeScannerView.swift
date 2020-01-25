@@ -10,7 +10,7 @@ import SwiftUI
 import BarcodeScanner
 
 struct BarcodeScannerView: UIViewControllerRepresentable {
-    var onCapture: (String) -> Void
+    var onCapture: (BarcodeScannerViewController, String) -> Void
     var onFail: (Error) -> Void
     func makeUIViewController(context: UIViewControllerRepresentableContext<BarcodeScannerView>) -> BarcodeScannerViewController {
         let vc = BarcodeScannerViewController()
@@ -26,17 +26,16 @@ struct BarcodeScannerView: UIViewControllerRepresentable {
         return Coordinator(onCapture: onCapture, onFail: onFail)
     }
     class Coordinator: BarcodeScannerCodeDelegate, BarcodeScannerErrorDelegate, BarcodeScannerDismissalDelegate {
-        var onCapture: (String) -> Void
+        var onCapture: (BarcodeScannerViewController, String) -> Void
         var onFail: (Error) -> Void
         
-        init(onCapture: @escaping (String) -> Void, onFail: @escaping (Error) -> Void) {
+        init(onCapture: @escaping (BarcodeScannerViewController, String) -> Void, onFail: @escaping (Error) -> Void) {
             self.onCapture = onCapture
             self.onFail = onFail
         }
         
         func scanner(_ controller: BarcodeScannerViewController, didCaptureCode code: String, type: String) {
-            onCapture(code)
-            controller.resetWithError(message: "Success!")
+            onCapture(controller, code)
         }
         func scanner(_ controller: BarcodeScannerViewController, didReceiveError error: Error) {
             onFail(error)

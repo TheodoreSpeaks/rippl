@@ -9,11 +9,17 @@
 import SwiftUI
 
 struct CaptureView: View {
+    @State var scanned = false
     var body: some View {
-        BarcodeScannerView(onCapture: { code in
+        BarcodeScannerView(onCapture: { controller, code in
             print(code)
+            self.scanned = true
+            controller.resetWithError(message: "Success!")
         }) { error in
             print(error.localizedDescription)
+        }
+        .alert(isPresented: $scanned) {
+            Alert(title: Text("Success!"), message: Text("You've successfully scanned the item."), dismissButton: nil)
         }
     }
 }
