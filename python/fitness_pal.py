@@ -16,7 +16,7 @@ def request_today(username):
     food_ate = []
     for meal in day.meals:
         for item in meal:
-            food_ate.append(item)
+            food_ate.append(item.name)
     
     print(food_ate)
 
