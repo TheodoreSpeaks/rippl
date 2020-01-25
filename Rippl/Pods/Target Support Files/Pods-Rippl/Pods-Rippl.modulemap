@@ -1,0 +1,6 @@
+framework module Pods_Rippl {
+  umbrella header "Pods-Rippl-umbrella.h"
+
+  export *
+  module * { export * }
+}
