@@ -1,4 +1,5 @@
 import pandas as pd
+import json
 
 class WaterData():
     def __init__(self, name=None, water_usage=0):
@@ -6,7 +7,7 @@ class WaterData():
         self.water_usage = water_usage
 
     def __str__(self):
-        return f"{self.name}: {self.water_usage}"
+        return json.dumps(self.__dict__)
 
 class CSVParser():
     def __init__(self):
