@@ -29,12 +29,12 @@ class CSVParser():
         self.df = pd.read_csv('water_footprint.csv')
 
 
-    def get_water_data(self, code: str, name="Beef", quantity=1,units="pounds"):
+    def get_water_data(self, code: str, name=None, quantity=1,units="pounds"):
         code_col = 'Product code (HS)'
         row = (self.df.loc[self.df[code_col] == code]).iloc[0]
 
         to_return = WaterData(
-                name=name,
+                name=name or row['Product description (HS)'],
                 quantity=quantity,
                 water_usage=int(row['Global average']),
                 units=units)
