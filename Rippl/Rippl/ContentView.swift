@@ -26,7 +26,7 @@ struct ContentView: View {
                             Image(systemName: "barcode.viewfinder")
                         })
                     .tag(1)
-                    LeaderboardView()
+                    ProfileView()
                         .tabItem({
                             Image(systemName: "person")
                         })

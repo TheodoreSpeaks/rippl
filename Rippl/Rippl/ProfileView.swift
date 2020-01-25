@@ -9,8 +9,28 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @State var selectedTab = 0
+    var selections = ["WEEK", "MONTH", "YEAR"]
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                ProfileHeaderView()
+                    .frame(height: 100)
+                Picker("", selection: $selectedTab) {
+                    ForEach(0 ..< selections.count) { index in
+                        Text(self.selections[index]).tag(index)
+                    }
+                }.pickerStyle(SegmentedPickerStyle())
+                .font(Font.custom("Avenir", size: 17))
+                .padding(.top)
+                
+                ProfileSummaryView(timeInterval: selections[selectedTab])
+                Spacer()
+            }
+            .navigationBarTitle("Profile")
+            .navigationViewStyle(StackNavigationViewStyle())
+            .navigationBarItems(leading: EditButton(), trailing: SettingsButton())
+        }
     }
 }
 

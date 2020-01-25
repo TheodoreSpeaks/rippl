@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,11 @@
 		5A2C653523DCB59E00D53FD0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C653423DCB59E00D53FD0 /* ProfileView.swift */; };
 		5A2C653723DCB5D200D53FD0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C653623DCB5D200D53FD0 /* LoginView.swift */; };
 		5A2C653B23DCD37A00D53FD0 /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C653A23DCD37A00D53FD0 /* BarcodeScannerView.swift */; };
+		5A2C653D23DCDE2600D53FD0 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C653C23DCDE2600D53FD0 /* ProfileHeaderView.swift */; };
+		5A2C653F23DCE94000D53FD0 /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C653E23DCE94000D53FD0 /* EditButton.swift */; };
+		5A2C654123DCE98000D53FD0 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C654023DCE98000D53FD0 /* SettingsButton.swift */; };
+		5A2C654323DCEB8C00D53FD0 /* ProfileSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C654223DCEB8C00D53FD0 /* ProfileSummaryView.swift */; };
+		5A2C654623DCEEF100D53FD0 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 5A2C654523DCEEF100D53FD0 /* SwiftUICharts */; };
 		6B956B5A5B9715AD0E29F46C /* Pods_Rippl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C070B510DB5AFF1C6DD62EC7 /* Pods_Rippl.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +44,10 @@
 		5A2C653423DCB59E00D53FD0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5A2C653623DCB5D200D53FD0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5A2C653A23DCD37A00D53FD0 /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
+		5A2C653C23DCDE2600D53FD0 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		5A2C653E23DCE94000D53FD0 /* EditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButton.swift; sourceTree = "<group>"; };
+		5A2C654023DCE98000D53FD0 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
+		5A2C654223DCEB8C00D53FD0 /* ProfileSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummaryView.swift; sourceTree = "<group>"; };
 		C070B510DB5AFF1C6DD62EC7 /* Pods_Rippl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rippl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -48,6 +57,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B956B5A5B9715AD0E29F46C /* Pods_Rippl.framework in Frameworks */,
+				5A2C654623DCEEF100D53FD0 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +102,10 @@
 				5A2C653023DCB57C00D53FD0 /* CaptureView.swift */,
 				5A2C653223DCB59700D53FD0 /* LeaderboardView.swift */,
 				5A2C653423DCB59E00D53FD0 /* ProfileView.swift */,
+				5A2C653C23DCDE2600D53FD0 /* ProfileHeaderView.swift */,
+				5A2C654223DCEB8C00D53FD0 /* ProfileSummaryView.swift */,
+				5A2C653E23DCE94000D53FD0 /* EditButton.swift */,
+				5A2C654023DCE98000D53FD0 /* SettingsButton.swift */,
 				5A2C652E23DCB51700D53FD0 /* UserDataModel.swift */,
 				5A2C652023DCB4C900D53FD0 /* Assets.xcassets */,
 				5A2C652523DCB4C900D53FD0 /* LaunchScreen.storyboard */,
@@ -135,6 +149,9 @@
 			dependencies = (
 			);
 			name = Rippl;
+			packageProductDependencies = (
+				5A2C654523DCEEF100D53FD0 /* SwiftUICharts */,
+			);
 			productName = Rippl;
 			productReference = 5A2C651723DCB4C800D53FD0 /* Rippl.app */;
 			productType = "com.apple.product-type.application";
@@ -163,6 +180,9 @@
 				Base,
 			);
 			mainGroup = 5A2C650E23DCB4C800D53FD0;
+			packageReferences = (
+				5A2C654423DCEEF100D53FD0 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 5A2C651823DCB4C800D53FD0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -235,10 +255,14 @@
 				5A2C652F23DCB51700D53FD0 /* UserDataModel.swift in Sources */,
 				5A2C651B23DCB4C800D53FD0 /* AppDelegate.swift in Sources */,
 				5A2C651D23DCB4C800D53FD0 /* SceneDelegate.swift in Sources */,
+				5A2C653F23DCE94000D53FD0 /* EditButton.swift in Sources */,
+				5A2C654123DCE98000D53FD0 /* SettingsButton.swift in Sources */,
+				5A2C654323DCEB8C00D53FD0 /* ProfileSummaryView.swift in Sources */,
 				5A2C651F23DCB4C800D53FD0 /* ContentView.swift in Sources */,
 				5A2C653323DCB59700D53FD0 /* LeaderboardView.swift in Sources */,
 				5A2C653523DCB59E00D53FD0 /* ProfileView.swift in Sources */,
 				5A2C653B23DCD37A00D53FD0 /* BarcodeScannerView.swift in Sources */,
+				5A2C653D23DCDE2600D53FD0 /* ProfileHeaderView.swift in Sources */,
 				5A2C653723DCB5D200D53FD0 /* LoginView.swift in Sources */,
 				5A2C653123DCB57C00D53FD0 /* CaptureView.swift in Sources */,
 			);
@@ -436,6 +460,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5A2C654423DCEEF100D53FD0 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5A2C654523DCEEF100D53FD0 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A2C654423DCEEF100D53FD0 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5A2C650F23DCB4C800D53FD0 /* Project object */;
 }
