@@ -1,5 +1,9 @@
 import pandas as pd
 import json
+import math
+
+def _convert_to_int(a):
+    return a if not math.isnan(a) else 0 
 
 class WaterData():
     # UNIT to tons
@@ -26,17 +30,30 @@ class WaterData():
 class CSVParser():
 
     def __init__(self):
-        self.df = pd.read_csv('water_footprint.csv')
+        meat_df = pd.read_csv("meat_data.csv")
+        food_df = pd.read_csv("water-consumption-food.csv")
+        df_products = pd.DataFrame(columns=['HS', 'product_name', 'green_world_average', 'blue_world_average', 'grey_world_average'])
+
+        i = 1
+        for item in (meat_df[meat_df['Country'] == 'Green']['Product discription (HS)']) :
+            df_products = df_products.append({'HS': meat_df['HS (PC-TAS) code'][i],'product_name': str(item), 'green_world_average': int(meat_df['World Average'][i]), 'blue_world_average': int(meat_df['World Average'][i+1]),  'grey_world_average': int(meat_df['World Average'][i+2])}, ignore_index=True)
+            i+=3
+
+        i = 1
+        for item in (food_df[food_df["Province/ state >>>"]=='Green']['Product description (HS)']) :
+            df_products = df_products.append({'HS': food_df['Product code (HS)'][i],'product_name': str(item), 'green_world_average': _convert_to_int(food_df['Global average'][i]), 'blue_world_average': _convert_to_int(food_df['Global average'][i+1]),  'grey_world_average': _convert_to_int(food_df['Global average'][i+2])}, ignore_index=True)
+            i+=3
+        self.df = df_products
 
 
     def get_water_data(self, code: str, name="Beef", quantity=1,units="pounds"):
-        code_col = 'Product code (HS)'
+        code_col = 'HS'
         row = (self.df.loc[self.df[code_col] == code]).iloc[0]
 
         to_return = WaterData(
                 name=name,
                 quantity=quantity,
-                water_usage=int(row['Global average']),
+                water_usage=int(row['blue_world_average']) + int(row['grey_world_average']),
                 units=units)
 
         return to_return
