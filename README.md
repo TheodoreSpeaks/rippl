@@ -1,2 +1,2 @@
 # rippl
-Rippl is a social platform to promote conservation.
+Rippl is a social platform to promote water conservation.
