@@ -18,11 +18,14 @@ class WaterData():
         gallon_factor = 265.172 # Multiply this to go from m^3 to gallons
         return cubes_per_ton * quantity * gallon_factor * WaterData.conversions[units]
 
-    def __init__(self, name=None, quantity=1, water_usage=0, units='pounds'):
+    def __init__(self, name=None, quantity=1, water_usage=0, units='pounds', blue_water=0, green_water=0, grey_water=0):
         self.name = name
         self.quantity = quantity
         self.gallons = self.get_gallons(quantity, water_usage, units)
         self.units = units
+        self.blue_water = blue_water
+        self.green_water = green_water
+        self.grey_water = grey_water
 
     def __str__(self):
         return json.dumps(self.__dict__)
@@ -35,7 +38,7 @@ class CSVParser():
 
         i = 1
         for item in (meat_df[meat_df['Country'] == 'Green']['Product discription (HS)']) :
-            df_products = df_products.append({'HS': meat_df['HS (PC-TAS) code'][i],'product_name': str(item), 'green_world_average': int(meat_df['World Average'][i]), 'blue_world_average': int(meat_df['World Average'][i+1]),  'grey_world_average': int(meat_df['World Average'][i+2])}, ignore_index=True)
+            df_products = df_products.append({'HS': str(int(meat_df['HS (PC-TAS) code'][i])),'product_name': str(item), 'green_world_average': int(meat_df['World Average'][i]), 'blue_world_average': int(meat_df['World Average'][i+1]),  'grey_world_average': int(meat_df['World Average'][i+2])}, ignore_index=True)
             i+=3
 
         i = 1
@@ -44,7 +47,9 @@ class CSVParser():
             i+=3
         self.df = df_products
 
-    def get_water_data(self, code: str, name=None, quantity=1,units="pounds"):
+        self.df.to_csv('combined.csv', sep=',')
+
+    def get_water_data(self, code: str, name=None, quantity=1, units="pounds"):
         code_col = 'HS'
         row = (self.df.loc[self.df[code_col] == code]).iloc[0]
 
@@ -52,7 +57,10 @@ class CSVParser():
                 name=name or row['product_name'],
                 quantity=quantity,
                 water_usage=int(row['blue_world_average']) + int(row['grey_world_average']),
-                units=units)
+                units=units,
+                blue_water=row['blue_world_average'],
+                grey_water=row['grey_world_average'],
+                green_water=row['green_world_average'])
 
         return to_return
 

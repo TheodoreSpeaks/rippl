@@ -4,7 +4,7 @@ code_conversion = {
         '0': ('110100a', 'pounds')
 }
 
-def scan(barcode: int, parser):
+def scan(barcode, parser):
     code, units = code_conversion[barcode]
     return parser.get_water_data(code, units=units)
 
