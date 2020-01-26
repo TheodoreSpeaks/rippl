@@ -4,6 +4,13 @@ import sys
 import re
 from parse_water_footprint import *
 
+name_to_code = {
+        'Rice - Rice': '100630',
+        'Egg': '40700',
+        'Peas - Peas': '071021',
+        'Corn - Corn': '071040'
+}
+
 def request_today(username, parser):
     """
     To run:
@@ -20,14 +27,17 @@ def request_today(username, parser):
         for item in meal:
             # Split by name
             split_1 = item.name.split(', ')
+            name = split_1[0]
+            print(name)
 
             # split_2 ex: [3, 'stalk']
             split_2 = split_1[1].split(' ')
             quantity = float(split_2[0])
             units = split_2[1]
 
-            food_ate.append(parser.get_water_data('110100a', 
-                            name=split_1[0],
+            food_ate.append(parser.get_water_data(
+                            name_to_code[name], 
+                            name=name,
                             quantity=quantity,
                             units=units))
     
