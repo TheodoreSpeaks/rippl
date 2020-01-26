@@ -1,8 +1,9 @@
 import myfitnesspal
 import datetime
 import sys
-import re
+import os
 from parse_water_footprint import *
+import json
 
 name_to_code = {
         'Rice - Rice': '100630',
@@ -19,7 +20,8 @@ def request_today(username, parser):
     it'll then ask for your password
     """
     date = datetime.date.today()
-    client = myfitnesspal.Client(username)
+    client = myfitnesspal.Client(username, os.getenv('PASSWORD'))
+
     day = client.get_date(date.year, date.month, date.day)
     
     food_ate = []
@@ -28,7 +30,6 @@ def request_today(username, parser):
             # Split by name
             split_1 = item.name.split(', ')
             name = split_1[0]
-            print(name)
 
             # split_2 ex: [3, 'stalk']
             split_2 = split_1[1].split(' ')
@@ -40,11 +41,9 @@ def request_today(username, parser):
                             name=name,
                             quantity=quantity,
                             units=units))
-    
-    for data in food_ate:
-        print(data)
+    return [json.loads(str(item)) for item in food_ate]
 
 if __name__ == '__main__':
     # Add your myfitnesspal username as an argument
     parser = CSVParser()
-    request_today(sys.argv[1], parser)
+    print(request_today(sys.argv[1], parser))
