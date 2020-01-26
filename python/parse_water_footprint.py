@@ -28,7 +28,6 @@ class WaterData():
         return json.dumps(self.__dict__)
 
 class CSVParser():
-
     def __init__(self):
         meat_df = pd.read_csv("meat_data.csv")
         food_df = pd.read_csv("water-consumption-food.csv")
@@ -44,8 +43,6 @@ class CSVParser():
             df_products = df_products.append({'HS': food_df['Product code (HS)'][i],'product_name': str(item), 'green_world_average': _convert_to_int(food_df['Global average'][i]), 'blue_world_average': _convert_to_int(food_df['Global average'][i+1]),  'grey_world_average': _convert_to_int(food_df['Global average'][i+2])}, ignore_index=True)
             i+=3
         self.df = df_products
-
-
 
     def get_water_data(self, code: str, name=None, quantity=1,units="pounds"):
         code_col = 'HS'
