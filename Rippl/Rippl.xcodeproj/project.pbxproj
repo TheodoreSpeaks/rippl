@@ -24,6 +24,7 @@
 		5A2C654123DCE98000D53FD0 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C654023DCE98000D53FD0 /* SettingsButton.swift */; };
 		5A2C654323DCEB8C00D53FD0 /* ProfileSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C654223DCEB8C00D53FD0 /* ProfileSummaryView.swift */; };
 		5A2C654623DCEEF100D53FD0 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 5A2C654523DCEEF100D53FD0 /* SwiftUICharts */; };
+		5A2C654823DD429400D53FD0 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C654723DD429400D53FD0 /* HttpRequest.swift */; };
 		6B956B5A5B9715AD0E29F46C /* Pods_Rippl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C070B510DB5AFF1C6DD62EC7 /* Pods_Rippl.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		5A2C653E23DCE94000D53FD0 /* EditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButton.swift; sourceTree = "<group>"; };
 		5A2C654023DCE98000D53FD0 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		5A2C654223DCEB8C00D53FD0 /* ProfileSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummaryView.swift; sourceTree = "<group>"; };
+		5A2C654723DD429400D53FD0 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpRequest.swift; path = ../../../../Personal/iOS/MusificationSwiftUI/MusificationSwiftUIApp/MusificationSwiftUI/Requests/HttpRequest.swift; sourceTree = "<group>"; };
 		C070B510DB5AFF1C6DD62EC7 /* Pods_Rippl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rippl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -107,6 +109,7 @@
 				5A2C653E23DCE94000D53FD0 /* EditButton.swift */,
 				5A2C654023DCE98000D53FD0 /* SettingsButton.swift */,
 				5A2C652E23DCB51700D53FD0 /* UserDataModel.swift */,
+				5A2C654723DD429400D53FD0 /* HttpRequest.swift */,
 				5A2C652023DCB4C900D53FD0 /* Assets.xcassets */,
 				5A2C652523DCB4C900D53FD0 /* LaunchScreen.storyboard */,
 				5A2C652823DCB4C900D53FD0 /* Info.plist */,
@@ -257,6 +260,7 @@
 				5A2C651D23DCB4C800D53FD0 /* SceneDelegate.swift in Sources */,
 				5A2C653F23DCE94000D53FD0 /* EditButton.swift in Sources */,
 				5A2C654123DCE98000D53FD0 /* SettingsButton.swift in Sources */,
+				5A2C654823DD429400D53FD0 /* HttpRequest.swift in Sources */,
 				5A2C654323DCEB8C00D53FD0 /* ProfileSummaryView.swift in Sources */,
 				5A2C651F23DCB4C800D53FD0 /* ContentView.swift in Sources */,
 				5A2C653323DCB59700D53FD0 /* LeaderboardView.swift in Sources */,
