@@ -1,7 +1,8 @@
 from parse_water_footprint import *
 
 code_conversion = {
-        '0': ('110100a', 'pounds')
+        '0': ('110100a', 'pounds'),
+        '016000435322': ('110100a', 'pounds')
 }
 
 def scan(barcode, parser):
