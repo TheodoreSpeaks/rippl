@@ -28,7 +28,6 @@ struct ProfileView: View {
                 Spacer()
             }
             .navigationBarTitle("Profile")
-            .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarItems(leading: EditButton(), trailing: SettingsButton())
         }
     }

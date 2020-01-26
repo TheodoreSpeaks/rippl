@@ -8,12 +8,31 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 class UserDataModel: ObservableObject {
     @Published var uid: String?
     var yearData: [Double] = [100,500,800,1000,400,1200,1600,200,800]
     var monthData: [Double] = [80,40,80,100,400,120,160,20,80]
     var weekData: [Double] = [10,40,60,80,100,20]
+    var friends = [
+        User(id: UUID(), name: "Stefan Stefancik", image: Image("stock_stefan"), progress: 400, total: 1000),
+        User(id: UUID(), name: "Christina Morillo", image: Image("stock_christina"), progress: 2900, total: 5000)
+    ]
+    var local = [
+        User(id: UUID(), name: "Stefan Stefancik", image: Image("stock_stefan"), progress: 400, total: 1000),
+        User(id: UUID(), name: "Christina Morillo", image: Image("stock_christina"), progress: 2900, total: 5000),
+        User(id: UUID(), name: "Stefan Stefancik", image: Image("stock_stefan"), progress: 400, total: 1000),
+        User(id: UUID(), name: "Christina Morillo", image: Image("stock_christina"), progress: 2900, total: 5000)
+    ]
+    var global = [
+        User(id: UUID(), name: "Stefan Stefancik", image: Image("stock_stefan"), progress: 400, total: 1000),
+        User(id: UUID(), name: "Christina Morillo", image: Image("stock_christina"), progress: 2900, total: 5000),
+        User(id: UUID(), name: "Stefan Stefancik", image: Image("stock_stefan"), progress: 400, total: 1000),
+        User(id: UUID(), name: "Christina Morillo", image: Image("stock_christina"), progress: 2900, total: 5000),
+        User(id: UUID(), name: "Stefan Stefancik", image: Image("stock_stefan"), progress: 400, total: 1000),
+        User(id: UUID(), name: "Christina Morillo", image: Image("stock_christina"), progress: 2900, total: 5000)
+    ]
     let url = "https://ripplheroku.herokuapp.com"
     func getData(for timeInterval: String) -> [Double] {
         switch timeInterval {
@@ -65,6 +84,18 @@ class UserDataModel: ObservableObject {
             }
         }) { error in
             print(error)
+        }
+    }
+    func getList(for filter: String) -> [User] {
+        switch filter {
+        case "FRIENDS":
+            return self.friends
+        case "LOCAL":
+            return self.local
+        case "GLOBAL":
+            return self.global
+        default:
+            return self.friends
         }
     }
 }
