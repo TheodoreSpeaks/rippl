@@ -26,7 +26,7 @@ def request_today(username, parser):
             quantity = float(split_2[0])
             units = split_2[1]
 
-            food_ate.append(parser.get_water_data('110100', 
+            food_ate.append(parser.get_water_data('110100a', 
                             name=split_1[0],
                             quantity=quantity,
                             units=units))

@@ -28,7 +28,6 @@ class WaterData():
         return json.dumps(self.__dict__)
 
 class CSVParser():
-
     def __init__(self):
         meat_df = pd.read_csv("meat_data.csv")
         food_df = pd.read_csv("water-consumption-food.csv")
@@ -45,8 +44,6 @@ class CSVParser():
             i+=3
             
         self.df = df_products
-
-
 
     def get_water_data(self, code: str, name=None, quantity=1,units="pounds"):
         code_col = 'HS'
