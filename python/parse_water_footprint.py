@@ -45,6 +45,7 @@ class CSVParser():
         for item in (food_df[food_df["Province/ state >>>"]=='Green']['Product description (HS)']) :
             df_products = df_products.append({'HS': food_df['Product code (HS)'][i],'product_name': str(item), 'green_world_average': _convert_to_int(food_df['Global average'][i]), 'blue_world_average': _convert_to_int(food_df['Global average'][i+1]),  'grey_world_average': _convert_to_int(food_df['Global average'][i+2])}, ignore_index=True)
             i+=3
+            
         self.df = df_products
 
         self.df.to_csv('combined.csv', sep=',')
