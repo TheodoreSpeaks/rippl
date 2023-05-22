@@ -4,5 +4,5 @@ Flask==1.1.1
 numpy==1.17.3
 pandas==0.25.2
 python-dateutil==2.8.0
-requests==2.22.0
+requests==2.31.0
 myfitnesspal==1.13.4
